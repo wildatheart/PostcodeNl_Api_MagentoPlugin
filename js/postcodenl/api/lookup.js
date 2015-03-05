@@ -421,6 +421,8 @@ document.observe("dom:loaded", PCNL_START_FUNCTION = function()
 					$(prefix + street1).setValue((data.street +' '+ data.houseNumber +' '+ (data.houseNumberAddition ? data.houseNumberAddition : housenumber_addition)).trim());
 				}
 				$(prefix +'city').setValue(data.city);
+				if (postcodeChange)
+					pcnlFireEvent($(prefix + 'city'), 'change');
 				if ($(prefix +'region'))
 				{
 					$(prefix +'region').setValue(data.province);
